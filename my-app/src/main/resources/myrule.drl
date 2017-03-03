@@ -1,0 +1,21 @@
+package demo
+
+import com.sample.model.Account
+
+rule "accountBalanceAtLeast"
+when
+$account : Account( balance < 100 )
+then
+System.out.println("Warning! money running out!");
+end
+
+
+rule "accountBalanceAtMost"
+when
+$account : Account( balance > 1000000 )
+then
+
+$account.withdraw(1000000);
+System.out.println("Warning! CBI Investigation will be started !");
+end
+
